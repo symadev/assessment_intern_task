@@ -46,6 +46,7 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         const userInfo = { email: currentUser.email };
        
+      
         axios.post('http://localhost:5000/jwt', userInfo)
           .then(res => {
             if (res.data.token) {
@@ -53,6 +54,10 @@ const AuthProvider = ({ children }) => {
               setLoading(false);
             }
           })
+          .catch(err => {
+            console.error("JWT Error:", err);
+            setLoading(false); 
+          });
       } else {
         localStorage.removeItem('access-token');
         setLoading(false);

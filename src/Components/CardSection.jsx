@@ -28,30 +28,37 @@ const CardSection = ({ product }) => {
   }
 
   const handleAddToCart = () => {
-    if (user && user?.email) {
-      const cartItem = {
-        productId: product.id, 
-        title,
-        image: imageUrl,
-        price: minPrice, 
-        userEmail: user.email 
-      };
+  if (user && user?.email) {
+    const cartItem = {
+      productId: product.id, 
+      title,
+      image: imageUrl,
+      price: minPrice, 
+      userEmail: user.email 
+    };
+
+    const token = localStorage.getItem('access-token');
+
+    axios.post('http://localhost:5000/cart', cartItem, {
+      headers: {
+        authorization: `Bearer ${token}` 
+      }
+    })
+    .then(res => {
+      if (res.data.insertedId) {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `${title} added to cart`,
+          showConfirmButton: false,
+          timer: 1500
+        });
+        refetch();
+      }
+    })
 
     
-      axios.post('http://localhost:5000/cart', cartItem)
-        .then(res => {
-          if (res.data.insertedId) {
-            Swal.fire({
-              position: "top-end",
-              icon: "success",
-              title: `${title} added to cart`,
-              showConfirmButton: false,
-              timer: 1500
-            });
-            
-            refetch();
-          }
-        })
+     
         .catch(err => {
           console.error(err);
           Swal.fire({
