@@ -14,7 +14,7 @@ const UseCart = () => {
             const token = localStorage.getItem('access-token');
 
             
-            const res = await axios.get(`http://localhost:5000/cart?email=${user?.email}`, {
+            const res = await axios.get(`https://assessment-backend-v8e9.vercel.app/cart?email=${user?.email}`, {
                 headers: {
                     authorization: `Bearer ${token}`
                 }

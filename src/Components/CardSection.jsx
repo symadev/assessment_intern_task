@@ -8,7 +8,7 @@ import useCart from '../Components/UseCart';
 const CardSection = ({ product }) => {
   const { user } = useContext(AuthContext);
   const [, refetch] = useCart(); 
-  const baseUrl = "http://localhost:1337";
+  const baseUrl = "https://assessment-backend-1-qc3i.onrender.com";
 
 
   const title = product?.products || product?.attributes?.products || "No Title";
@@ -39,7 +39,7 @@ const CardSection = ({ product }) => {
 
     const token = localStorage.getItem('access-token');
 
-    axios.post('http://localhost:5000/cart', cartItem, {
+    axios.post('https://assessment-backend-v8e9.vercel.app/cart', cartItem, {
       headers: {
         authorization: `Bearer ${token}` 
       }
