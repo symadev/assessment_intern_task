@@ -14,7 +14,7 @@ const Home = () => {
         const fetchAllData = async () => {
             try {
                
-                const heroRes = await fetch('https://assessment-backend-7wwf.onrender.comapi/hero-section?populate=*');
+                const heroRes = await fetch('https://assessment-backend-7wwf.onrender.com/api/hero-section?populate=*');
                 const heroJson = await heroRes.json();
                 setHeroData(heroJson.data);
 
