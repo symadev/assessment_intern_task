@@ -14,12 +14,12 @@ const Home = () => {
         const fetchAllData = async () => {
             try {
                
-                const heroRes = await fetch('http://localhost:1337/api/hero-section?populate=*');
+                const heroRes = await fetch('https://assessment-backend-7wwf.onrender.comapi/hero-section?populate=*');
                 const heroJson = await heroRes.json();
                 setHeroData(heroJson.data);
 
               
-                const productRes = await fetch('http://localhost:1337/api/products?populate=*');
+                const productRes = await fetch('https://assessment-backend-7wwf.onrender.com/api/products?populate=*');
                 const productJson = await productRes.json();
                 setProducts(productJson.data);
 
