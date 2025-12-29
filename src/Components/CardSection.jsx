@@ -20,12 +20,12 @@ const CardSection = ({ product }) => {
   const imageData = product?.image || product?.attributes?.image;
   
   if (imageData) {
-    if (imageData.url) {
-        imageUrl = `${baseUrl}${imageData.url}`;
-    } else if (imageData.data?.attributes?.url) {
-        imageUrl = `${baseUrl}${imageData.data.attributes.url}`;
-    }
+  const url = imageData.url || imageData.data?.attributes?.url;
+  if (url) {
+      
+      imageUrl = url.startsWith('http') ? url : `${baseUrl}${url}`;
   }
+}
 
   const handleAddToCart = () => {
   if (user && user?.email) {

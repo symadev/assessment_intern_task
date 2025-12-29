@@ -10,7 +10,9 @@ const VideoBanner = ({ data }) => {
   const description = data.Description || "";
   const btn1 = data.Button1Text || "Contact Us";
   const btn2 = data.Button2Text || "Learn More";
-  const videoUrl = data.BannerVideo?.url ? `${baseUrl}${data.BannerVideo.url}` : "";
+  const videoUrl = data.BannerVideo?.url 
+  ? (data.BannerVideo.url.startsWith('http') ? data.BannerVideo.url : `${baseUrl}${data.BannerVideo.url}`) 
+  : "";
 
   return (
     <div className="relative w-full h-screen overflow-hidden bg-black font-sans">
