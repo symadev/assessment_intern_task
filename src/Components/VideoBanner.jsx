@@ -2,7 +2,7 @@ import React from 'react';
 import { Play, MapPin, Mail, ArrowRight } from 'lucide-react';
 
 const VideoBanner = ({ data }) => {
-  const baseUrl = "https://assessment-backend-2-jv2q.onrender.com";
+  const baseUrl = "https://assessment-backend-7wwf.onrender.com";
   if (!data) return null;
 
   const title = data.Title || "High-Quality Garments. Ethically Made.";

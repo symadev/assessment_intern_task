@@ -8,7 +8,7 @@ import useCart from '../Components/UseCart';
 const CardSection = ({ product }) => {
   const { user } = useContext(AuthContext);
   const [, refetch] = useCart(); 
-  const baseUrl = "https://assessment-backend-2-jv2q.onrender.com";
+  const baseUrl = "https://assessment-backend-7wwf.onrender.com";
 
 
   const title = product?.products || product?.attributes?.products || "No Title";
